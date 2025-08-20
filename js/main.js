@@ -98,11 +98,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 
 
 
-
-
-
-
-
 document.addEventListener('DOMContentLoaded', () => {
   const burger = document.querySelector('.burger');
   const topnav = document.querySelector('.topnav');

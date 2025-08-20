@@ -82,11 +82,9 @@ body{ margin:0; font-family:'Cairo', system-ui, -apple-system, Segoe UI, Arial, 
 }
 .btn{ background:var(--red); color:#fff; text-decoration:none; border:0; padding:12px 22px; border-radius:8px; font-weight:800; cursor:pointer; display:inline-block; transition:.25s }
 .btn:hover{ background:#800000 }
-/* FOOTER */
 .site-footer{ text-align:center; padding:20px; background:#333; color:#fff; margin-top:40px }
 .burger{display: none; background: transparent; border: 0; cursor: pointer; padding: 6px; margin-inline-start:auto ;}
 .burger span{display: block; width: 26px;height: 3px;background: #fff; margin: 5px 0;transition: 0.25s;} 
-/* في ملف CSS العام */
 .fade-out {
   opacity: 0;
   transition: opacity 0.6s ease;
