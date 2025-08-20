@@ -6,7 +6,7 @@ Student ID: 2320230176
 
 Project Overview: 
 Project Title:
-  .Martyrs and Survivors Stories Platform - Gaza      
+ Martyrs and Survivors Stories Platform - Gaza      
 Project Description:
                        This project is a five‑pages, front‑end website that documents martyrs from Gaza, amplifies survivors’ stories, and enables respectful community participation. Built with pure HTML, CSS, and JavaScript on the client side, The site structure:
    1-Home: a welcoming hero section, quick stats (e.g., number of   .profiles, stories), recent highlights, and navigation 
