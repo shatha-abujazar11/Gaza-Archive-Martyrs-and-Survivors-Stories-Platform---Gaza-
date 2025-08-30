@@ -1,5 +1,73 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const burger = document.querySelector('.burger');
+  const topnav = document.querySelector('.topnav');
+  if (burger && topnav) {
+    burger.addEventListener('click', () => {
+      const isOpen = topnav.classList.toggle('open');
+      burger.setAttribute('aria-expanded', isOpen? 'true': 'false');
+});
+}
 
-window.onload = function() {
+  try {
+    const here = location.pathname.replace(/\\/g, '/').toLowerCase();
+    document.querySelectorAll('.topnav ul a').forEach(a => {
+      const href = a.getAttribute("href");
+      if (!href) return;
+      const link = new URL(href, location.origin + location.pathname).pathname.toLowerCase();
+      if (here.endsWith(link)) a.classList.add('active');
+});
+} catch (e) {}
+
+  const revealEls = document.querySelectorAll('.card,.text-box,.figure img,.contact-card,.section');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('reveal-in');
+          io.unobserve(e.target);
+}
+});
+}, { threshold: 0.1});
+    revealEls.forEach(el => io.observe(el));
+} else {
+    revealEls.forEach(el => el.classList.add('reveal-in'));
+}
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener("click", e => {
+      const id = a.getAttribute("href");
+      const target = id && document.querySelector(id);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: "smooth", block: "start"});
+}
+});
+});
+});
+document.querySelectorAll(".accordion .acc-title").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const expanded = btn.getAttribute("aria-expanded") === "true";
+    btn.setAttribute("aria-expanded", String(!expanded));
+    const panel = btn.nextElementSibling;
+    if (!panel) return;
+    panel.style.display = expanded ? "none" : "block";
+  });
+});
+// Reveal on Scroll
+const revealEls = document.querySelectorAll(".reveal");
+if ("IntersectionObserver" in window) {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add("is-visible");
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+} else {
+  // متصفحات قديمة
+  revealEls.forEach(el => el.classList.add("is-visible"));
+}
+
+/*window.onload = function() {
     document.getElementById('welcome-popup').style.display = 'flex';
 };
 
@@ -131,6 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
     revealEls.forEach(el => el.classList.add('reveal-in'));
   }
 
+  m = document.getElementById('survivorForm');
   const contactForm = document.getElementById('contactForm');
   const contactStatus = document.getElementById('contactStatus');
   if (contactForm) {
@@ -151,8 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
       contactForm.reset();
     });
   }
-  const survivorForm = document.getElementById('survivorForm');
-  const survivorList = document.getElementById('survivorList');
+  const survivorFor survivorList = document.getElementById('survivorList');
 
   function escapeHTML(s = '') {
     return s.replace(/[&<>"'`=\/]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;', '/': '&#x2F;', '`': '&#x60;', '=': '&#x3D;' }[c] || c));
@@ -206,4 +274,4 @@ document.addEventListener('DOMContentLoaded', () => {
       alert('تمت إضافة القصة (محفوظة محليًا في متصفحك).');
     });
   }
-});
+});*/
